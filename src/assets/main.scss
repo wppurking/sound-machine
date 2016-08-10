@@ -4,18 +4,50 @@ html {
 
 body {
   margin: 0;
+  height: 100%;
 }
 
 #app {
   background-color: #0C7CA2;
+  position: relative;
+  height: 100%;
+}
+
+.content {
+  position: absolute;
+  height: 100%;
 }
 
 .toolbar {
+  padding-top: 5px;
+  position: relative;
   height: 30px;
+  margin-bottom: 10px;
+
+  .setting {
+    position: absolute;
+    right: 40px;
+  }
+
+  .close {
+    position: absolute;
+    right: 10px;
+  }
+
+  .btn {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  img {
+    height: 25px;
+  }
 }
 
 .speaker {
-  padding: 20px;
+  padding: 0 20px;
+  margin-bottom: 30px;
 
   img {
     width: 328px;
