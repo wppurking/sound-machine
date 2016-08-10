@@ -24,11 +24,25 @@ module.exports = {
         loader: ExtractTextPlugin.extract(["css", "sass"])
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'url',
         query: {
-          limit: 10000,
-          name: '[name].[hash:7].[ext]'
+          limit: 100000,
+          name: 'img/[name].[hash:7].[ext]'
+        }
+      },
+      {
+        test: /\.(wav)$/,
+        loader: 'file',
+        query: {
+          name: 'wav/[name].[ext]'
+        }
+      },
+      {
+        test: /\.(svg)$/,
+        loader: 'file',
+        query: {
+          name: 'fonts/[name].[ext]'
         }
       },
       {

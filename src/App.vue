@@ -6,7 +6,7 @@
     </div>
     <div class="buttons">
       <template v-for='btn in buttons'>
-        <beep-button :beep='btn.beep'></beep-button>
+        <beep-button :icon='btn.icon' :beep='btn.beep'></beep-button>
       </template>
     </div>
   </div>
@@ -23,23 +23,23 @@
           {beep: 'ba-dum-tsss'},
           {beep: 'ba-dum-tsss'},
           {beep: 'ba-dum-tsss'},
+          {beep: 'ba-dum-tsss'},
           {icon: 'applause', beep: 'applause'},
           {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'},
-          {icon: 'applause', beep: 'applause'}
+          {icon: 'applause', beep: 'burp'},
+          {icon: 'applause', beep: 'burp'},
+          {icon: 'crowd-laughing', beep: 'crowd-laughing'},
+          {icon: 'crowd-laughing', beep: 'crowd-laughing'},
+          {icon: 'applause', beep: 'fart'},
+          {icon: 'applause', beep: 'fart'},
+          {icon: 'money', beep: 'money'},
+          {icon: 'money', beep: 'money'},
+          {icon: 'money', beep: 'money'},
+          {icon: 'money', beep: 'money'},
+          {icon: 'applause', beep: 'sad-trombone'},
+          {icon: 'applause', beep: 'sad-trombone'},
+          {icon: 'applause', beep: 'sad-trombone'},
+          {icon: 'applause', beep: 'sad-trombone'}
         ]
       }
     },
