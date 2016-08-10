@@ -1,15 +1,16 @@
 var path = require('path');
 var webpack = require('webpack');
 
-var assetRoot = path.resolve('.');
-var outputDir = path.join(assetRoot, 'dist');
+var rootPath = path.resolve('.');
+var outputDir = path.join(rootPath, 'dist');
 
 
 module.exports = {
-  entry: path.join(assetRoot, 'src/main'),
+  entry: path.join(rootPath, 'src/main'),
   output: {
     path: outputDir,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: 'dist/'
   },
   module: {
     loaders: [
@@ -26,7 +27,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: path.join(assetRoot, 'assets/img/[name].[hash:7].[ext]')
+          name: '[name].[hash:7].[ext]'
         }
       },
       {
@@ -39,7 +40,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.vue'],
     alias: {
-      vues: path.join(assetRoot, 'src/components')
+      vues: path.join(rootPath, 'src/components')
     }
   },
   // 用于开发测试
