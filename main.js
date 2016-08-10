@@ -5,9 +5,10 @@ var mainWindow = null;
 app.on('ready', () => {
   if(!mainWindow) {
     mainWindow = new BrowserWindow({
-      width: 800,
-      height: 600,
-      resizable: false
+      width: 368,
+      height: 700,
+      resizable: false,
+      frame: false
     });
 
     mainWindow.loadURL('file://' + __dirname + "/index.html");
