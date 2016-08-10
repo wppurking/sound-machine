@@ -8,7 +8,6 @@ import Setting from 'vues/setting';
 Vue.use(VueRouter);
 
 let router = new VueRouter();
-router.mode = 'abstract';
 router.map({
   '/': {
     name: 'app',
