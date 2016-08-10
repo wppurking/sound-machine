@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var rootPath = path.resolve('.');
 var outputDir = path.join(rootPath, 'dist');
@@ -20,7 +21,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass'
+        loader: ExtractTextPlugin.extract(["css", "sass"])
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -40,9 +41,13 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.vue'],
     alias: {
-      vues: path.join(rootPath, 'src/components')
+      vues: path.join(rootPath, 'src/components'),
+      assets: path.join(rootPath, 'src/assets')
     }
   },
+  plugins: [
+    new ExtractTextPlugin("bundle.css")
+  ],
   // 用于开发测试
   devtool: 'eval',
   target: 'electron'
