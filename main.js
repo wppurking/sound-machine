@@ -17,11 +17,9 @@ app.on('ready', () => {
       mainWindow = null;
     });
   }
-
-  setGlobalShortcut();
 });
 
-function setGlobalShortcut() {
+function setGlobalShortcut(prefix) {
   globalShortcut.unregisterAll();
 
   let beepOrder = [
@@ -34,11 +32,18 @@ function setGlobalShortcut() {
     'sad-trombone'
   ];
 
+  if(!prefix) {
+    prefix = 'CmdOrCtrl';
+  }
+
   beepOrder.forEach((v, i) => {
-    globalShortcut.register(`Control+${i + 1}`, () => {
+    globalShortcut.register(`${prefix}+${i + 1}`, () => {
       mainWindow.webContents.send('beep', v);
     });
   });
 }
 
 ipc.on('quit-app-window', () => app.quit());
+ipc.on('set-global-shortcuts', (ev, shortcuts) => {
+  setGlobalShortcut(shortcuts.join("+"));
+})

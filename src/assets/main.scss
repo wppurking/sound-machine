@@ -20,6 +20,12 @@ body {
   margin: 50% auto 0 auto;
   border: 1px solid #ccc;
   padding: 10px;
+
+  .items {
+    label {
+      display: block;
+    }
+  }
 }
 
 .content {
