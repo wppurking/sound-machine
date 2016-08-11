@@ -14,7 +14,17 @@
   import 'assets/wav/money.wav';
   import 'assets/wav/sad-trombone.wav';
 
-  export default{
+  import Vue from 'vue';
+  import { ipcRenderer as ipc } from 'electron';
+
+  function beepMusic(beep) {
+    let audio = new Audio(`dist/wav/${beep}.wav`)
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  // 尝试直接在 component 中自己使用 Vue.extend 初始化 Vue Component
+  let vm = Vue.extend({
     props: {
       icon: {
         type: String,
@@ -27,10 +37,12 @@
     },
     methods: {
       play() {
-        let audio = new Audio(`dist/wav/${this.beep}.wav`)
-        audio.currentTime = 0;
-        audio.play();
+        beepMusic(this.beep);
       }
     }
-  }
+  });
+
+  ipc.on('beep', (ev, v) => beepMusic(v));
+
+  export default vm;
 </script>

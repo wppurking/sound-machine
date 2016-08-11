@@ -1,5 +1,6 @@
 html {
   height: 100%;
+  -webkit-app-region: drag;
 }
 
 body {
@@ -56,7 +57,7 @@ body {
 
 .speaker {
   padding: 0 20px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 
   img {
     width: 328px;
@@ -75,6 +76,10 @@ body {
   width: 90px;
   height: 60px;
   text-align: center;
+
+  span, button {
+    -webkit-app-region: no-drag;
+  }
 }
 
 span {
