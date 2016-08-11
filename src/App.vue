@@ -15,14 +15,19 @@
 
 <script>
   import 'assets/main.scss';
+  import Vue from 'vue';
   import { ipcRenderer as ipc } from 'electron';
 
-  export default {
+  ipc.send('set-global-shortcuts', ['CmdOrCtrl']);
+
+  let vm = Vue.extend({
     replace: false,
     methods: {
       quitApp() {
         ipc.send('quit-app-window');
       }
     }
-  }
+  });
+
+  export default vm;
 </script>
