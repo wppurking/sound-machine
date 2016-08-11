@@ -20,14 +20,12 @@
 
   ipc.send('set-global-shortcuts', ['CmdOrCtrl']);
 
-  let vm = Vue.extend({
+  export default {
     replace: false,
     methods: {
       quitApp() {
         ipc.send('quit-app-window');
       }
     }
-  });
-
-  export default vm;
+  };
 </script>
