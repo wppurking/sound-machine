@@ -1,9 +1,7 @@
 const { app, BrowserWindow, globalShortcut } = require('electron');
-const { ipcMain } = require('electron');
+const ipc = require('electron').ipcMain;
 
 var mainWindow = null;
-console.log("ipc in main:");
-console.log(ipcMain);
 
 app.on('ready', () => {
   if(!mainWindow) {
@@ -42,3 +40,5 @@ function setGlobalShortcut() {
     });
   });
 }
+
+ipc.on('quit-app-window', () => app.quit());

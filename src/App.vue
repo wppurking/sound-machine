@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="toolbar">
-      <a class='btn close'>
+      <a @click='quitApp' class='btn close'>
         <img src='assets/img/close.png'>
       </a>
       <a v-link="{ name: 'setting' }" class="btn setting">
@@ -15,8 +15,14 @@
 
 <script>
   import 'assets/main.scss';
+  import { ipcRenderer as ipc } from 'electron';
 
   export default {
-    replace: false
+    replace: false,
+    methods: {
+      quitApp() {
+        ipc.send('quit-app-window');
+      }
+    }
   }
 </script>
